@@ -1,0 +1,23 @@
+schema:
+  [
+    "https://api-mumbai.lens.dev",
+    "https://api.thegraph.com/subgraphs/name/superfluid-finance/protocol-v1-matic",
+  ]
+documents:
+  [
+    "./graphql/queries/*.graphql",
+    "./graphql/mutations/*.graphql",
+    "./graphql/fragments/*.graphql",
+  ]
+
+# hooks:
+#   afterAllFileWrite:
+#     - prettier --write
+
+generates:
+  generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - fragment-matcher
+      - typescript-react-apollo
